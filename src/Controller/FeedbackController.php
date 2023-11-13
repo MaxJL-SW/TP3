@@ -29,6 +29,7 @@ class FeedbackController extends AbstractController
 
         return $this->render('feedback/index.html.twig', [
             'form' => $form->createView(),
+            'productName' => $productName,
         ]);
     }
     #[Route('/products', name: 'products')]
