@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feedback Form{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Feedback Form</h1>
+    {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form_row(form.nomClient, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_row(form.emailClient, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.noteProduit, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.commentaires, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.dateSoumission, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

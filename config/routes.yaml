@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+nom_de_la_route:
+    path: /chemin/de/la/route
+    controller: NomBundle:Controller:Action
+

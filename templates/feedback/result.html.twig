@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feedback Details{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Feedback Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Nom du Produit : {{ productName }}</h5>
+            <p class="card-text"><strong>Nom du Client :</strong> {{ feedback.nomClient }}</p>
+            <p class="card-text"><strong>Email du Client :</strong> {{ feedback.emailClient }}</p>
+            <p class="card-text"><strong>Note du Produit :</strong> {{ feedback.noteProduit }}</p>
+            <p class="card-text"><strong>Commentaires :</strong> {{ feedback.commentaires }}</p>
+            <p class="card-text"><strong>Date de Soumission :</strong> {{ feedback.dateSoumission|date('Y-m-d') }}</p>
+            <a href="{{ path('products') }}" class="btn btn-primary">Retour à la liste des produits</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
