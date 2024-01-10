@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feedback Edit{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Edit Feedback</h1>
+
+        {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_label(form.nomClient) }}
+            {{ form_widget(form.nomClient, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.nomClient) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.emailClient) }}
+            {{ form_widget(form.emailClient, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.emailClient) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.noteProduit) }}
+            {{ form_widget(form.noteProduit, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.noteProduit) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.commentaires) }}
+            {{ form_widget(form.commentaires, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.commentaires) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.dateSoumission) }}
+            {{ form_widget(form.dateSoumission, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.dateSoumission) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

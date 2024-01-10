@@ -21,6 +21,12 @@ class FeedbackRepository extends ServiceEntityRepository
         parent::__construct($registry, Feedback::class);
     }
 
+    public function delete(Feedback $feedback): void
+    {
+        $this->_em->remove($feedback);
+        $this->_em->flush();
+    }
+
 //    /**
 //     * @return Feedback[] Returns an array of Feedback objects
 //     */

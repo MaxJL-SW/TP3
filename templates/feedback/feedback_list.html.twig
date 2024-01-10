@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des feedbacks{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Liste des feedbacks</h1>
+
+        <a href="{{ path('index') }}" class="btn btn-primary">Retour à l'accueil</a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Client</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Commentaires</th>
+                    <th scope="col">Date Soumission</th>
+                    <th scope="col">Actions</th> <!-- Colonne supplémentaire pour les actions -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedbackData in feedbackData %}
+                    <tr>
+                        <td>{{ feedbackData.clientName }}</td>
+                        <td>{{ feedbackData.email }}</td>
+                        <td>{{ feedbackData.note }}</td>
+                        <td>{{ feedbackData.comment }}</td>
+                        <td>{{ feedbackData.submissionDate|date('Y-m-d') }}</td>
+                        <td>
+                            <!-- Bouton de modification dans sa propre cellule -->
+                            <a href="{{ path('feedback_edit', {'id': feedbackData.id}) }}" class="btn btn-primary">Modifier</a>
+                            <form method="post" action="{{ path('feedback_delete', {'id': feedbackData.id}) }}" style="display: inline-block;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce feedback?');">
+                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+{% endblock %}

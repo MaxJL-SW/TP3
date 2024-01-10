@@ -8,3 +8,14 @@ nom_de_la_route:
     path: /chemin/de/la/route
     controller: NomBundle:Controller:Action
 
+products_list:
+    path: /products
+    controller: App\Controller\ProductController::index
+
+feedback_list:
+    path: /feedbacks
+    controller: App\Controller\FeedbackController::feedbackList
+
+index:
+    path: /
+    controller: App\Controller\FeedbackController::index
